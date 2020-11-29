@@ -16,21 +16,9 @@ namespace CodeforcesHomework.Homework_1
             var a = Console.ReadLine().Split().Select(int.Parse).ToArray();
             var s = Console.ReadLine().ToCharArray();
 
-            int totalDamage = 0;
+            long totalDamage = 0;
             int rowLength = 1;
-            int rowDamage = a[0];
-
-            //int startIndex = 0;
-            //int finishIndex = 0;
-
-            //while (finishIndex != n)
-            //{
-            //    if(startIndex == finishIndex)
-            //    {
-
-            //    }
-            //}
-
+            long rowDamage = a[0];
 
 
 
@@ -48,7 +36,7 @@ namespace CodeforcesHomework.Homework_1
                         Array.Sort(tempArray);
                         var bestItems = new int[k];
                         Array.Copy(tempArray, rowLength - k, bestItems, 0, k);
-                        totalDamage += bestItems.Sum();
+                        totalDamage += bestItems.Sum(v => (long)v);
                     }
 
                     rowLength = 1;
@@ -71,7 +59,7 @@ namespace CodeforcesHomework.Homework_1
                 Array.Sort(tempArray);
                 var bestItems = new int[k];
                 Array.Copy(tempArray, rowLength - k, bestItems, 0, k);
-                totalDamage += bestItems.Sum();
+                totalDamage += bestItems.Sum(v => (long)v);
             }
 
             Console.WriteLine(totalDamage);

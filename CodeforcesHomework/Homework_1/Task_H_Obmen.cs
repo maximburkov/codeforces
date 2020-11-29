@@ -15,13 +15,14 @@ namespace CodeforcesHomework.Homework_1
             int[] arr = Console.ReadLine().Split().Select(int.Parse).ToArray();
             bool[] swaps = Console.ReadLine().ToCharArray().Select(i => i == '1').ToArray();
             int maxCount = 200000;
+            int[] dynamicSwaps = new int[n - 1];
 
             int[] sorted = new int[n];
             Array.Copy(arr, sorted, n);
             Array.Sort(sorted);
 
-            int[] positions = new int[maxCount];
-            int[] sortedPositions = new int[maxCount];
+            int[] positions = new int[maxCount + 1];
+            int[] sortedPositions = new int[maxCount + 1];
 
             for (int i = 0; i < maxCount; i++)
             {
@@ -35,25 +36,21 @@ namespace CodeforcesHomework.Homework_1
                 sortedPositions[sorted[i]] = i;
             }
 
-            bool needAchieve = false;
-            int needAchievePosition = 0;
+            dynamicSwaps[0] = swaps[0] ? 1 : 0;
 
-            for (int i = 0; i < n - 1; i++)
+            for (int i = 1; i < n - 1; i++)
             {
-                if (arr[i] != sorted[i])
-                {
-                    needAchievePosition = sortedPositions[arr[i]];
-                    needAchieve = true;
-                }
+                dynamicSwaps[i] = swaps[i] ? dynamicSwaps[i - 1] + 1 : 0;
+            }
 
-                if (needAchievePosition <= i + 1)
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[i] > sorted[i])
                 {
-                    needAchieve = false;
-                }
+                    int rightIndex = sortedPositions[arr[i]];
 
-                //we can achieve i+1 position with swaps[i]
-                if (!swaps[i] && needAchieve)
-                {
+                    if(rightIndex - i <= dynamicSwaps[rightIndex - 1]) continue;
+
                     Console.WriteLine("NO");
                     return;
                 }

@@ -8,7 +8,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Task_H_Obmen();
+            ITask task = new Task_G_Usb_vs_PS2();
             task.Solve();
         }
     }
