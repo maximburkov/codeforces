@@ -10,7 +10,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Kth_Permutation_Sequence();
+            ITask task = new Permutations.Permutations();
             task.Solve();
         }
     }
