@@ -2,6 +2,7 @@
 using System.Collections;
 using CodeforcesHomework.Homework_1;
 using CodeforcesHomework.Homework_3;
+using CodeforcesHomework.Permutations;
 
 namespace CodeforcesHomework
 {
@@ -9,7 +10,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Task_H_Slagaemie();
+            ITask task = new Kth_Permutation_Sequence();
             task.Solve();
         }
     }
