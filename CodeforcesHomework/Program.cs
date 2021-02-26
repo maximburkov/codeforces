@@ -9,7 +9,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Task_F_Raspil();
+            ITask task = new Task_H_Slagaemie();
             task.Solve();
         }
     }
