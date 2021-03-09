@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using CodeforcesHomework.Greedy;
 using CodeforcesHomework.Homework_1;
 using CodeforcesHomework.Homework_3;
 using CodeforcesHomework.Permutations;
@@ -10,7 +11,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Permutations.Permutations();
+            ITask task = new HighestProduct();
             task.Solve();
         }
     }
