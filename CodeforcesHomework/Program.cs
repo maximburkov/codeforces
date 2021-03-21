@@ -11,7 +11,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new HighestProduct();
+            ITask task = new Candy();
             task.Solve();
         }
     }

@@ -15,44 +15,35 @@ namespace CodeforcesHomework.Permutations
 
         public List<int> nextPermutation(List<int> A)
         {
-            int n = A.Count;
-            var sorted = A.OrderBy(i => i).ToList();
-            int[] positions = new int [n];
-
-            for (int i = 0; i < n; i++)
+            int indexToSwap = 0;
+            for (int i = A.Count - 1; i > 0; i--)
             {
-                for (int j = 0; j < n; j++)
+                if (A[i] >= A[i - 1])
                 {
-                    if (A[i] == sorted[j])
-                        positions[i] = j;
+                    indexToSwap = i;
                 }
             }
 
-            for (int i = n - 1; i >= 0; i--)
-            {
-                if (positions[i] == n - 1)
-                {
-                    if (i == 0)
-                    {
-                        positions = positions.Reverse().ToArray();
-                        break;
-                    }
+            int compareWith = A[indexToSwap];
+            int nextIndex = 0;
+            int nextNumber = int.MaxValue;
 
-                    positions[i] = 0;
-                }
-                else
+            for (int i = indexToSwap + 1; i < A.Count; i++)
+            {
+                if (A[i] <= nextNumber && A[i] >= compareWith)
                 {
-                    positions[i]++;
-                    break;
+                    nextIndex = i;
+                    nextNumber = A[i];
                 }
             }
 
-            for (int i = 0; i < n; i++)
-            {
-                A[i] = sorted[positions[i]];
-            }
+            // swap
+            int buf = A[indexToSwap];
+            A[indexToSwap] = nextNumber;
+            A[nextIndex] = buf;
 
-            return A;
+            return A.Take(indexToSwap + 1).Concat(A.Skip(indexToSwap + 1).Take(A.Count - indexToSwap).Reverse())
+                .ToList();
         }
     }
 }
