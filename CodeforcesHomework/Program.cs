@@ -3,6 +3,7 @@ using System.Collections;
 using CodeforcesHomework.Greedy;
 using CodeforcesHomework.Homework_1;
 using CodeforcesHomework.Homework_3;
+using CodeforcesHomework.Homework_4;
 using CodeforcesHomework.Permutations;
 
 namespace CodeforcesHomework
@@ -11,7 +12,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Candy();
+            ITask task = new Task_F_Table_Tennis();
             task.Solve();
         }
     }
