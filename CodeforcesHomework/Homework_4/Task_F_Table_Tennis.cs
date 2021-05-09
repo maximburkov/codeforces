@@ -14,10 +14,18 @@ namespace CodeforcesHomework.Homework_4
             long n = buf[0];
             long maxCount = buf[1];
             long currentCount = 0;
-            Queue<int> queue =  new Queue<int>(Console.ReadLine().Split().Select(int.Parse).ToArray());
-            int winner = 0;
+            int[] players = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
-            while(currentCount < maxCount)
+            if(maxCount > n)
+            {
+                Console.WriteLine(players.Max());
+                return;
+            }
+
+            Queue<int> queue = new Queue<int>(players);
+            int winner = queue.Dequeue();
+
+            while (currentCount < maxCount)
             {
                 int rival = queue.Dequeue();
                 

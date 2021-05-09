@@ -12,7 +12,7 @@ namespace CodeforcesHomework
     {
         static void Main(string[] args)
         {
-            ITask task = new Task_F_Table_Tennis();
+            ITask task = new Task_L_Cd_And_Pwd();
             task.Solve();
         }
     }
@@ -50,3 +50,4 @@ namespace CodeforcesHomework
 //    }
 //}
 #endregion
+
